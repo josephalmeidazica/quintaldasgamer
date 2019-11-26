@@ -36,6 +36,15 @@ class FabricanteController
         
         return $result[0];
     }
+    public function buscarId($id)
+    {
+        $filtro = "id = '$id'";
+
+        Fabricante::startConexao();
+        $result = Fabricante::buscarTodos($filtro);
+        
+        return $result[0];
+    }
 
     public function render($view)
     {

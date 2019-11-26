@@ -10,7 +10,7 @@ class Produto{
 	private $estoque;
 	private $preco_custo;
 	private $preco_venda;
-	private $img;
+	private $imagem;
 	private $fabricante;
 	private $categoria;
 	private $caracteristicas;
@@ -55,10 +55,10 @@ class Produto{
 		return $this->preco_venda; 		
 	}
 	public function getImg(){
-		return $this->img;
+		return $this->imagem;
 	}
 	public function setImg($img){
-		$this->img = $img;
+		$this->imagem = $img;
 	}
 	public function setFabricante(Fabricante $f){	
 		$this->fabricante = $f;			

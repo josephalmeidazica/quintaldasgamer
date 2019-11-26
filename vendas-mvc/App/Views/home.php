@@ -36,12 +36,16 @@
           <h1 class="display-4 text-primary"><?php echo $boasvindas;?></h1>
         <h1 class="display-4 text-primary">Menu</h1>
 
-         
+          <a href=<?php echo 'http://'.APP_HOST .'/App/Views/list_users.php' ?> class="btn btn-block btn-outline-primary my-3">Listar Usuários</a>
+
           <a href=<?php echo 'http://'.APP_HOST .'/App/Views/categoria_view.php' ?> class="btn btn-block btn-outline-primary my-3">Categoria</a>
 
           <a href= <?php echo 'http://'.APP_HOST .'/App/Views/fabricante_view.php' ?> class="btn btn-block btn-outline-primary">Fabricante</a>
           
           <a href=<?php echo 'http://'.APP_HOST .'/App/Views/produto_view.php' ?> class="btn btn-block btn-outline-primary">Produto</a>
+      
+
+          <a href=<?php echo 'http://'.APP_HOST .'/App/Views/list_produtos.php' ?> class="btn btn-block btn-outline-primary">Listar Produtos</a>
       
       </div>
 
