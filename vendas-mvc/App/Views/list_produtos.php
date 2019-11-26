@@ -104,7 +104,7 @@
             <tr>
               <td><?php echo $u->getNome(); ?></td>
               <td><?php echo $u->getDescricao(); ?></td>
-              <td><?php echo $u->getCategoria(); ?></td>
+              <td><?php echo $u->getFabricante()->getNome(); ?></td>
               <td><?php echo $u->getEstoque(); ?></td>
               <td><?php echo $u->getPrecoVenda(); ?></td>
               <td><?php echo $u->getPrecoCusto(); ?></td>

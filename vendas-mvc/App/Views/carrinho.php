@@ -89,41 +89,37 @@
      
         <?php
         $prodCtrl = new ProdutoController()
-    ?>
-    
-          <!-- Produto 1-->
-          <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-2">
-      <table class="table">
-        <thead class="thead-light ">
-          <tr>
-            <th scope="col">Nome</th>
-            <th scope="col">Valor</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($produtos as $p) {
-          $prod = Produto::find($p);?>
-            <tr>
-              <td><?php echo $prod->getNome(); ?></td>
-              <td><?php echo "R$".$prod->getPrecoVenda();$total+=$prod->getPrecoVenda() ?></td>
-            <tr>
-            <?php
-            }
-            ?>
-            <tr>
-              <td>Total </td>
-              <td><?php echo "R$".$total ?></td>
-            <tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-         
-
-
+        ?>
+        
+              <!-- Produto 1-->
+              <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-2">
+                <table class="table">
+                  <thead class="thead-light ">
+                    <tr>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Valor</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($produtos as $p) {
+                    $prod = Produto::find($p);?>
+                      <tr>
+                        <td><?php echo $prod->getNome(); ?></td>
+                        <td><?php echo "R$".$prod->getPrecoVenda();$total+=$prod->getPrecoVenda() ?></td>
+                      <tr>
+                      <?php
+                      }
+                      ?>
+                      <tr>
+                        <td>Total </td>
+                        <td><?php echo "R$".$total ?></td>
+                      <tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
         </div>
         <!-- /.row -->
 
@@ -133,8 +129,18 @@
     </div>
     <!-- /.row -->
 
+    <?php $i = 0 ?>
+
+      <form method="POST" action="../Controllers/finalizaCompra.php">
+            <input type="hidden" name="total" value="<?php echo "R$".$total ?>">
+            <?php foreach ($produtos as $p){ $i++;?>
+              <input type="hidden" name="produto.<?php echo $i ?>" value="<?php echo $p->getId() ?>">
+            <?php } ?>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Finalizar Compra</button>
+        </form>
   </div>
   <!-- /.container -->
+  
 
   <!-- Footer -->
   <footer class="py-3 bg-light">
