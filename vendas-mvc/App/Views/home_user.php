@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  
-  <title>Qualquer coisa Loja On-Line</title>
+  <title>Quintal das Gamers - Home</title>
 
   <!-- Bootstrap CSS -->
   <!--link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"-->
@@ -22,7 +22,7 @@
   <!-- Navigation -->
  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
-      <a class="navbar-brand text-info" href="index.php">Qualquer Coisa</a>
+      <a class="navbar-brand text-success" href="home_user.php">QDG</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -66,7 +66,7 @@
   <div class="container my-5"></div>
 
   <div class="container text-center my-4">
-      <h1 class="font-weight-bold display-4 text-info">Quintal das Gamers</h1>
+      <h1 class="font-weight-bold display-4 text-success">Quintal das Gamers</h1>
       <h3 class="text-secondary">Sua loja online 100% gamer.</h3>
     </div>
 
@@ -93,14 +93,15 @@
                   <small class="text-muted"><?php echo $p->getDescricao()?></small>
                 </p>
                
-                <h5 class="card-text text-center text-info"><?php echo "R$".$p->getPrecoVenda()?></h5>
+                <h5 class="card-text text-center text-success"><?php echo "R$".$p->getPrecoVenda()?></h5>
                   
               </div>
               <div class="card-footer border-light">
-               <form method="POST" >
+               <form method="POST" action="carrinho.php">
                   <div class="form-row">
                     <div class="col-5">
                       <input class="form-control" type="number" name="quantidade" min="1" value="1">
+                      <input type="hidden" name="idProduto" value="<?php echo $p->getId() ?>">
                     </div>
                     <div class="col-7">                
                       <?php echo '<a href="view_produto.php?idProduto='.$p->getId().'""><button type="button"  class="btn btn-block btn-outline-success" >Comprar

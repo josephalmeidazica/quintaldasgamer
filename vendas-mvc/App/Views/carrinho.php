@@ -17,7 +17,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
  
-  <title>Qualquer coisa Loja On-Line</title>
+  <title>Quintal das Gamers - Carrinho</title>
 
   <!-- Bootstrap CSS -->
   <!--link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"-->
@@ -30,7 +30,7 @@
   <!-- Navigation -->
  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
-      <a class="navbar-brand text-info" href="index.php">Qualquer Coisa</a>
+      <a class="navbar-brand text-info" href="home_user.php">QDG</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -100,6 +100,7 @@
                     <tr>
                       <th scope="col">Nome</th>
                       <th scope="col">Valor</th>
+                      <th scope="col">Quantidade</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -108,6 +109,7 @@
                       <tr>
                         <td><?php echo $prod->getNome(); ?></td>
                         <td><?php echo "R$".$prod->getPrecoVenda();$total+=$prod->getPrecoVenda() ?></td>
+                        <td><?php echo ?></td>
                       <tr>
                       <?php
                       }
@@ -131,11 +133,12 @@
 
     <?php $i = 0 ?>
 
-      <form method="POST" action="../Controllers/finalizaCompra.php">
+      <form method="POST" action="../Controllers/vendaController.php">
             <input type="hidden" name="total" value="<?php echo "R$".$total ?>">
-            <?php foreach ($produtos as $p){ $i++;?>
-              <input type="hidden" name="produto.<?php echo $i ?>" value="<?php echo $p->getId() ?>">
-            <?php } ?>
+            <?php foreach ($produtos as $p){ 
+              $p->setEstoque($p->getEstoque()--);
+            }
+            ?>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Finalizar Compra</button>
         </form>
   </div>
